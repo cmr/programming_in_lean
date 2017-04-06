@@ -501,7 +501,7 @@ do write_x 5,
    return (y + 2)
 
 -- BEGIN
-eval foo init_reg
+#eval foo init_reg
 -- END
 #+END_SRC
 The result is the pair =(15, registers.mk 5 15 8)=, consisting of the
@@ -520,6 +520,7 @@ constants include the following:
 import system.io
 
 namespace hide
+
 -- BEGIN
 constant put_str : string → io unit
 constant put_nat : nat → io unit
@@ -544,7 +545,7 @@ to the user, and that the expressions are printed in the right order.
 import system.io
 
 -- BEGIN
-vm_eval put_str "hello " >> put_str "world!" >> put_nat (27 * 39)
+#eval put_str "hello " >> put_str "world!" >> put_nat (27 * 39)
 -- END
 #+END_SRC
 
